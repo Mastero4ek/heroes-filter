@@ -1,21 +1,27 @@
-import { getData } from "./getData";
-import { renderData } from "./render";
+import { getData } from "./getData"
+import { renderData } from "./render"
+import { searchObj } from "./helpers"
 
 const search = () => {
     const input = document.getElementById('input');
 
+    let names = [];
+
     function renderByName(data) {
         let value = input.value.trim();
+        let stringLength = input.value.length;
 
-        data.forEach((item) => {
-            if (value != '') {
-                if (item.name.search(value) == -1) {
-                    console.log(item)
+        if (value != '') {
+            for (let i = 0; i < data.length; i++) {
+                let name = data[i].name.split('').slice(0, stringLength).join('');
+
+                if (name == input.value) {
+                    renderData(searchObj(data, data[i]))
                 }
-            } else {
-                renderData(data)
             }
-        });
+        } else {
+            renderData(data)
+        }
     }
 
     input.addEventListener('input', () => getData('./db/dbHeroes.json').then(data => renderByName(data)));

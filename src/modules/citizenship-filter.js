@@ -17,7 +17,7 @@ const filterCitizenship = () => {
         currentCitizenship = new Set(citizenship);
 
         currentCitizenship.forEach((item) => {
-            citizenshipFilter.insertAdjacentHTML('beforeend', `<option value="${item.toLowerCase()}">${item}</option>`)
+            citizenshipFilter.insertAdjacentHTML('beforeend', `<option value="${item}">${item}</option>`)
         });
     }
 

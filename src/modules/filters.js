@@ -29,6 +29,7 @@ const filters = () => {
         hero = {};
         newData = [];
     }
+    clearFilters()
 
     function renderMovies(data) {
         newData = [];
