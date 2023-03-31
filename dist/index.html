@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Marvel:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+
+	<script defer src="./js/main.js"></script>
+
+	<title>Heroes</title>
+</head>
+
+<body>
+	<script>if (localStorage.getItem('theme') === 'dark-theme') document.body.classList.add('dark-theme');</script>
+
+	<header class="header">
+		<div class="container">
+			<div class="header__wrapper">
+				<div class="header__logo logo">
+					<a href="#" class="logo__icon">
+						<svg class="icon">
+							<use xlink:href="img/icons.svg#avengers"></use>
+						</svg>
+					</a>
+				</div>
+
+				<h1 class="header__title">Choose Your HERO</h1>
+
+				<div class="header__change change">
+					<label class="change__toggle">
+						<input class="change__toggle-state" id="toggle" type="checkbox" name="check">
+
+						<div class="change__indicator">
+							<div class="change__indicator-img light">
+								<svg class="light__icon icon">
+									<use xlink:href="img/icons.svg#sun"></use>
+								</svg>
+							</div>
+
+							<div class="change__indicator-img dark">
+								<svg class="dark__icon icon">
+									<use xlink:href="img/icons.svg#moon"></use>
+								</svg>
+							</div>
+						</div>
+					</label>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section class="filters">
+		<div class="container">
+			<div class="filters__wrapper filter" id="filter">
+
+				<form action="#" method="POST" class="filter__elements">
+					<div class="filter__item input">
+						<label class="filter__label">
+							<input name="search" id="input" type="text" class="filter__input"
+								placeholder="Enter hero name" autocomplete="off">
+						</label>
+					</div>
+
+					<div class="filter__item gender">
+						<label for="male" class="filter__label checkbox">
+							<span class="checkbox-txt">Male</span>
+
+							<input value="male" id="male" type="radio" name="gender" class="filter__radio">
+							<div class="filter__radio-mark"></div>
+						</label>
+
+						<label for="female" class="filter__label checkbox">
+							<span class="checkbox-txt">Female</span>
+
+							<input value="female" id="female" type="radio" name="gender" class="filter__radio">
+							<div class="filter__radio-mark"></div>
+						</label>
+					</div>
+
+					<div class="filter__item">
+						<label for="status" class="filter__label">
+							<select name="status" id="status" class="filter__select">
+								<option value="" selected disabled>Choose status</option>
+								<option value="deceased">Deceased</option>
+								<option value="alive">Alive</option>
+							</select>
+						</label>
+					</div>
+
+					<div class="filter__item">
+						<label for="species" class="filter__label">
+							<select name="species" id="species" class="filter__select">
+								<option value="" selected disabled>Choose species</option>
+								<option value="human">Human</option>
+								<option value="Celestial">Celestial</option>
+								<option value="Zehoberei">Zehoberei</option>
+								<option value="flora colossus">Flora Colossus</option>
+								<option value="Asgardian">Asgardian</option>
+								<option value="kronan">Kronan</option>
+								<option value="Frost Giant">Frost Giant</option>
+								<option value="Titan">Titan</option>
+								<option value="Android">Android</option>
+							</select>
+						</label>
+					</div>
+
+					<div class="filter__item">
+						<label for="citizenship" class="filter__label">
+							<select name="citizenship" id="citizenship" class="filter__select">
+								<option value="" selected disabled>Choose citizenship</option>
+							</select>
+						</label>
+					</div>
+
+					<div class="filter__item movies">
+						<label for="movies" class="filter__label">
+							<select name="movies" id="movies" class="filter__select">
+								<option value="" selected disabled>Choose movies</option>
+							</select>
+						</label>
+					</div>
+
+					<div class="filter__item search">
+						<button type="submit" id="render-button" class="button filter-button">Search</button>
+					</div>
+
+					<div class="filter__item delete">
+						<button type="button" id="delete-button" class="button filter-button">Deleted all
+							filters</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</section>
+
+	<section class="heroes">
+		<div class="heroes__wrapper">
+			<div class="container">
+				<div id="cards" class="cards"></div>
+			</div>
+		</div>
+	</section>
+
+	<a href="#filter" class="scroll-btn">
+		<svg class="icon">
+			<use xlink:href="./img/icons.svg#uparrow"></use>
+		</svg>
+	</a>
+</body>
+
+</html>
