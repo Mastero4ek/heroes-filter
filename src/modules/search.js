@@ -1,26 +1,29 @@
 import { getData } from "./getData"
 import { renderData } from "./render"
-import { searchObj } from "./helpers"
 
 const search = () => {
     const input = document.getElementById('input');
 
-    let names = [];
+    let newData = [];
 
     function renderByName(data) {
         let value = input.value.trim();
-        let stringLength = input.value.length;
+
+        newData = [];
 
         if (value != '') {
-            for (let i = 0; i < data.length; i++) {
-                let name = data[i].name.split('').slice(0, stringLength).join('');
+            data.forEach(item => {
+                if (!item.name) return;
 
-                if (name == input.value) {
-                    renderData(searchObj(data, data[i]))
+                if (item.name.includes(input.value)) {
+                    newData.push(item);
+                    renderData(newData);
+                } else {
+                    renderData(newData);
                 }
-            }
+            });
         } else {
-            renderData(data)
+            renderData(data);
         }
     }
 
